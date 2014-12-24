@@ -10,6 +10,8 @@ require.config
         proton: '../components/proton/build/proton-1.0.0' 
         socketio: '../components/socket.io-client/socket.io' 
     shim:
+        proton:
+            exports: 'Proton'
         underscore:
             exports: '_'
         backbone:

@@ -16,6 +16,7 @@ io.on 'connection', (socket)->
 
 #coffee and js components
 app.use '/components', express.static path.join(__dirname, '../bower_components')
+app.use '/images', express.static path.join(__dirname, '../src/images')
 app.use '/js', coffeemiddleware
     src: "#{__dirname}/../src/scripts"
     dest: "#{__dirname}/../public/js"
