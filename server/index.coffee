@@ -18,6 +18,7 @@ app.use '/js', coffeemiddleware
     dest: "#{__dirname}/../public/js"
     bare: true
 
+app.use express.static(path.join(__dirname, '../public'))
 
 app.get('/', (req, res)->
       res.sendfile('index.html');
