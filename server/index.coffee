@@ -11,6 +11,9 @@ app.enable 'trust proxy'
 http = require('http').Server(app);
 io = require('socket.io')(http);
 
+io.on 'connection', (socket)->
+      console.log('a user connected')
+
 #coffee and js components
 app.use '/components', express.static path.join(__dirname, '../bower_components')
 app.use '/js', coffeemiddleware
@@ -39,6 +42,7 @@ input.getPortName(0);
 # Configure a callback.
 input.on('message', (deltaTime, message)-> 
   console.log('m:' + message + ' d:' + deltaTime);
+  io.emit "midiinput", message
 );
 
 # Open the first available input port.
